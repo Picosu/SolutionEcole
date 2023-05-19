@@ -21,7 +21,8 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        // Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        ContentView()
                     } label: {
                         Text(item.timestamp!, formatter: itemFormatter)
                     }
@@ -46,7 +47,7 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-            let entity = entitytest()
+
             do {
                 try viewContext.save()
             } catch {

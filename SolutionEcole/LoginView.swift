@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var isLoggedIn: Bool = false
+    @State private var isOn: Bool = false
 
     var body: some View {
         VStack(spacing: 20) {
@@ -31,10 +32,19 @@ struct LoginView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
+            Spacer()
+            Toggle(isOn: $isOn) {
+                        Text("I'm not a robot")
+                    }
+                    .toggleStyle(ButtonToggleStyle())
         }
         .padding()
         .fullScreenCover(isPresented: $isLoggedIn) {
-            ContentView()
+            if isOn {
+                
+            } else {
+                ContentView()
+            }
         }
     }
     
